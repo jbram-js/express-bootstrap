@@ -27,7 +27,7 @@ it('GET /jokes should respond with a jokes message', done => {
         categories: [],
       },
     ],
-  };
+  }
 
   nock('https://api.icndb.com')
     .get('/jokes')

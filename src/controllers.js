@@ -1,5 +1,6 @@
+ 
 // eslint-disable-next-line
-const { request } = require('request');
+const request = require('request');
 
 const mainController = (req, res) =>
   res.send({
@@ -9,7 +10,7 @@ const mainController = (req, res) =>
 const jokesController = (req, res) =>
   request('https://api.icndb.com/jokes', (error, jokesApiResponse) => {
     if (error) {
-      // eslint-disable-next-line no-console
+      // eslint-disable-next-line
       console.log(error);
     }
 
