@@ -1,4 +1,3 @@
- 
 // eslint-disable-next-line
 const request = require('request');
 
@@ -21,7 +20,7 @@ const jokesController = (req, res) =>
 
 const randomJokeController = (req, res) =>
   res.send({
-    message: 'Reached the random joke endpoint',
+    randomJoke: 'Reached the random joke endpoint',
   });
 
 const personalJokeController = (req, res) =>

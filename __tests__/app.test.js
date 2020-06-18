@@ -27,7 +27,7 @@ it('GET /jokes should respond with a jokes message', done => {
         categories: [],
       },
     ],
-  }
+  };
 
   nock('https://api.icndb.com')
     .get('/jokes')
@@ -54,11 +54,25 @@ it('GET /jokes should respond with a jokes message', done => {
 });
 
 it('GET /joke/random should respond with a random joke message', done => {
+  const mockResponse = {
+    type: 'success',
+    value: {
+      id: 115,
+      joke: 'i am a random joke',
+      categories: [],
+    },
+  };
+
+  nock('https://api.icndb.com')
+    .get('/random')
+    .query({ exclude: '[explicit]' })
+    .reply(200, mockResponse);
+
   request(app)
     .get('/joke/random')
     .then(res => {
       expect(res.statusCode).toEqual(200);
-      expect(res.body.message).toEqual('Reached the random joke endpoint');
+      expect(res.body.randomJoke).toEqual('Reached the random joke endpoint');
       done();
     });
 });
